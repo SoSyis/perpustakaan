@@ -17,9 +17,16 @@
         @forelse ($bukus as $buku)
         <div class="col-md-3 mb-4">
             <div class="card h-100">
+                <!-- Tambahkan foto di sini -->
+                <img src="{{ asset('uploads/buku/' . $buku->gambar) }}" 
+                    class="card-img-top" 
+                    alt="{{ $buku->judul }}"
+                    style="object-fit: cover; height: 300px;">
+                
                 <div class="card-body">
                     <h5 class="card-title">
-                        <a href="{{ route('pengunjung.buku.show', $buku->id) }}" class="text-decoration-none text-dark">
+                        <a href="{{ route('pengunjung.buku.show', $buku->id) }}" 
+                        class="text-decoration-none text-dark">
                             {{ $buku->judul }}
                         </a>
                     </h5>
@@ -30,7 +37,7 @@
             </div>
         </div>
         @empty
-        <p class="text-muted">Buku tidak ditemukan.</p>
+        <p class="text-center">Tidak ada data buku</p>
         @endforelse
     </div>
 </div>
